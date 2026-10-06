@@ -1,0 +1,4 @@
+from root_script.sub_root_1.script_utilities import food_delivery_discount
+
+
+food_delivery_discount()
