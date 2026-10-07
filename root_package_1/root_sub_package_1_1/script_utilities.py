@@ -1,3 +1,4 @@
+
 # Function to calculate food delivery discount based on total order value
 def food_delivery_discount():
     mov_threshold = 1000   # Setting threshold for discount
@@ -26,11 +27,11 @@ def food_delivery_discount():
 # We create multiple small reusable functions (bonus calc, tax calc, net salary calc)
 
 # bonus calculation function
-def bonus_calc(salary, bonus_percentage):
+def bonus_calc(salary:float, bonus_percentage:float):
     return salary * bonus_percentage  # calculating bonus with salary
 
 # tax calculation function as per new tax slabs in India following new regime for FY 2026-27
-def tax_calc(salary):
+def tax_calc(salary:float):
     tax_value = 0
 
     if salary <= 1200000:
@@ -57,11 +58,19 @@ def tax_calc(salary):
         
         tax_value += tax_value * 0.04
         return tax_value
+    return None
 
 
 # net salary calculation function
-def net_salary_calc(salary, bonus_percentage, pf, incentives):
-    bonus = bonus_calc(salary, bonus_percentage)
-    tax = tax_calc(salary)
+def net_salary_calc(salary:float, bonus_percentage:float, incentives:float):
+    basic_salary = salary * 0.50  # Assuming basic salary is 50% of total salary
+    dearness_allowance = salary * 0.20  # Assuming DA is 20% of total salary
+    pf = (basic_salary + dearness_allowance) * 0.12  # Assuming PF is 12% of basic salary + dearness allowance
+
+    bonus = bonus_calc(salary, bonus_percentage)  # calculating bonus with salary and bonus percentage
+    tax = tax_calc(salary)  # calculating tax with salary
+
+    # calculating net salary from salary, bonus, incentives and other deductions like tax and pf
     net_salary = salary + bonus + incentives - (tax + pf)
+
     return net_salary

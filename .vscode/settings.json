@@ -1,0 +1,5 @@
+{
+    "python.analysis.extraPaths": [
+        "./root_script/sub_root_1"
+    ]
+}
