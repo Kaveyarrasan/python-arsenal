@@ -1,4 +1,4 @@
-# python-arsenal
+# python_works
 A collection of concise Python snippets showcasing versatile programming concepts.
 
 <b>Function Based Programming</b> \
